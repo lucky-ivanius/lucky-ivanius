@@ -1,5 +1,5 @@
-Hi 👋 My name is Lucky Ivanius
----
+Hi 👋 I'm Lucky Ivanius
+===
 I'm a Software Engineer
 ---
 I’ve been learning programming since the age of 12, starting with desktop application development and moving on to web apps. Currently, I’m learning decentralized apps.
@@ -7,7 +7,7 @@ I’ve been learning programming since the age of 12, starting with desktop appl
 * ✉️  You can contact me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com)
 * 🚀  I'm currently working on [Nuroho Software Consulting](http://nurosoft.id)
 * 🧠  I'm learning Solidity
-* 🤝  I'm open to collaborating on Web3.0 projects
+* 🤝  I'm open to collaborating on Enterprise projects or Web3.0 projects
 
 ### Skills  
 
