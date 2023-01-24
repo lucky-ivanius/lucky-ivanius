@@ -1,13 +1,9 @@
-Hi 👋 I'm Lucky Ivanius
-===
-I'm a Software Engineer
----
-I’ve been learning programming since the age of 12, starting with desktop application development and moving on to web apps. Currently, I’m learning decentralized apps.
-* 🌍  I'm based in Medan, Indonesia
-* ✉️  You can contact me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com)
-* 🚀  I'm currently working on [Nuroho Software Consulting](http://nurosoft.id)
-* 🧠  I'm learning Solidity
-* 🤝  I'm open to collaborating on Enterprise projects or Web3.0 projects
+# Hi 👋 I'm Lucky Ivanius
+I'm a self-taught developer.\
+I've been honing my skills since I was just 12 years old, starting with desktop application development and then moving on to web apps.\
+Right now, I'm diving into the world of decentralized apps.\
+I'm based in Medan, Indonesia and I'm always open to connecting with others.\
+Feel free to reach out to me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com).
 
 ### Skills  
 
