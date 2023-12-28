@@ -54,6 +54,7 @@ const formSchema = z.object({
 export default function ThankYou() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const formWrapperRef = useRef<HTMLDivElement>(null);
   const thankYouWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -129,6 +130,10 @@ export default function ThankYou() {
     getMessagesData();
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.play();
+  }, []);
+
   const searchParams = useSearchParams();
 
   const guestName = searchParams.get("to");
@@ -181,11 +186,16 @@ export default function ThankYou() {
           className="absolute w-full bottom-32 md:bottom-20 md:h-full md:w-2/3 translate-x-12 md:translate-x-32"
         >
           <video
+            ref={videoRef}
             src="/videos/bg.mp4"
             muted
             autoPlay
             loop
             playsInline
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            preload="auto"
             className="h-full w-full scale-[260%] md:scale-100"
           />
         </div>
