@@ -25,6 +25,7 @@ import { useEffect, useRef, useState } from "react";
 import { submitMessage } from "./actions/submit-greetings";
 import { MessageData, getMessages } from "./actions/get-messages";
 import { toast } from "sonner";
+import { useSearchParams } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -128,10 +129,14 @@ export default function ThankYou() {
     getMessagesData();
   }, []);
 
+  const searchParams = useSearchParams();
+
+  const guestName = searchParams.get("to");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      name: guestName ?? "",
       message: "",
     },
   });
