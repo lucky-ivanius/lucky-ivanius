@@ -11,10 +11,21 @@ import image03 from "@/assets/wedding/images/_WIL1200.jpg";
 import image04 from "@/assets/wedding/images/_WIL1477.jpg";
 import image05 from "@/assets/wedding/images/_WIL1723.jpg";
 import image06 from "@/assets/wedding/images/_WIL1570.jpg";
+import image07 from "@/assets/wedding/images/_WIL1878.jpg";
+import image08 from "@/assets/wedding/images/_WIL1908.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = [image01, image02, image03, image04, image05, image06];
+const images = [
+  image01,
+  image02,
+  image03,
+  image04,
+  image05,
+  image06,
+  image07,
+  image08,
+];
 
 export default function Gallery() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -50,7 +61,7 @@ export default function Gallery() {
             stagger: {
               axis: "x",
               from: "start",
-              grid: [1, 6],
+              grid: [1, 8],
               ease: "power3.inOut",
             },
           }
@@ -100,7 +111,6 @@ export default function Gallery() {
           scrub: true,
           start: "top -20%",
           end: "center top",
-          markers: true,
         },
       });
 
@@ -126,7 +136,7 @@ export default function Gallery() {
     >
       <div
         ref={imageWrapperRef}
-        className="flex items-center justify-start h-full w-[600vw]"
+        className="flex items-center justify-start h-full w-[800vw]"
         style={{ transform: "perspective(1000px)" }}
       >
         {images.map((image, index) => (

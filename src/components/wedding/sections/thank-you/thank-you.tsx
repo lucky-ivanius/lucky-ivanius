@@ -164,12 +164,6 @@ export default function ThankYou() {
     >
       <div className="h-full w-full relative overflow-hidden">
         <div
-          ref={keepScrollingTextRef}
-          className="w-full absolute top-10 left-1/2 -translate-x-1/2"
-        >
-          <p className="text-center text-xs">keep scrolling ...</p>
-        </div>
-        <div
           ref={videoWrapperRef}
           className="absolute w-full bottom-32 md:bottom-20 md:h-full md:w-2/3 translate-x-12 md:translate-x-32"
         >

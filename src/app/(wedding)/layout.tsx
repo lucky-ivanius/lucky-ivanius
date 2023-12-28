@@ -26,6 +26,7 @@ export default function Layout({ children }: LayoutProps) {
       <AudioProvider audioUrl="/audios/audio.mp3">
         <main id="wedding-invitation" className={`${montserrat.className}`}>
           {children}
+          <ScrollProgress />
         </main>
         <Invitation />
         <BgMusic />
