@@ -2,20 +2,30 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Image from "next/image";
 import { useRef } from "react";
 
-const images = [
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1110.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1178.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1200.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1477.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1723.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1570.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1878.jpg",
-  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1908.jpg",
-];
+import image01 from "@/assets/wedding/images/_WIL1110.jpg";
+import image02 from "@/assets/wedding/images/_WIL1178.jpg";
+import image03 from "@/assets/wedding/images/_WIL1200.jpg";
+import image04 from "@/assets/wedding/images/_WIL1477.jpg";
+import image05 from "@/assets/wedding/images/_WIL1723.jpg";
+import image06 from "@/assets/wedding/images/_WIL1570.jpg";
+import image07 from "@/assets/wedding/images/_WIL1878.jpg";
+import image08 from "@/assets/wedding/images/_WIL1908.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const images = [
+  image01,
+  image02,
+  image03,
+  image04,
+  image05,
+  image06,
+  image07,
+  image08,
+];
 
 export default function Gallery() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -129,7 +139,7 @@ export default function Gallery() {
         className="flex items-center justify-start h-full w-[800vw]"
       >
         {images.map((image, index) => (
-          <img
+          <Image
             src={image}
             key={index}
             alt={`gallery-image-${index}`}

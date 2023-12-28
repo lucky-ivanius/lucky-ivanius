@@ -38,8 +38,7 @@ export const weddingData = {
     },
   },
   urls: {
-    calendar:
-      "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/lucky_jessica_wedding_reception.ics",
+    calendar: "/calendar/lucky_jessica_wedding_reception.ics",
   },
   giftAccounts: [
     {

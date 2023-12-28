@@ -176,7 +176,7 @@ export default function ThankYou() {
           className="absolute w-full bottom-32 md:bottom-20 md:h-full md:w-2/3 translate-x-12 md:translate-x-32"
         >
           <video
-            src="https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/bg.mp4"
+            src="/videos/bg.mp4"
             muted
             autoPlay
             loop
