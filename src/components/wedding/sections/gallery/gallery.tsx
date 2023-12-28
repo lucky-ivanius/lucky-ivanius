@@ -2,9 +2,18 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Image from "next/image";
 import { useRef } from "react";
-import Images from "./components/images";
+
+const images = [
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1110.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1178.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1200.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1477.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1723.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1570.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1878.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL1908.jpg",
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,7 +128,14 @@ export default function Gallery() {
         ref={imageWrapperRef}
         className="flex items-center justify-start h-full w-[800vw]"
       >
-        <Images />
+        {images.map((image, index) => (
+          <img
+            src={image}
+            key={index}
+            alt={`gallery-image-${index}`}
+            className="gallery-image object-cover object-center h-4/6 md:h-full w-1/2"
+          />
+        ))}
       </div>
 
       <svg

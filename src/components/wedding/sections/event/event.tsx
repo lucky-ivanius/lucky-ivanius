@@ -71,9 +71,9 @@ export default function Event() {
 
   return (
     <section ref={wrapperRef} id="event" className="relative">
-      <Image
+      <img
         ref={eventImageRef}
-        src={bgImage}
+        src={bgImage.src}
         alt="event-bg-image"
         className="h-screen object-cover object-top w-[10000px] absolute"
       />

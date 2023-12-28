@@ -6,6 +6,7 @@ import Gallery from "@/components/wedding/sections/gallery/gallery";
 import ThankYou from "@/components/wedding/sections/thank-you/thank-you";
 import Hero from "@/components/wedding/sections/hero/hero";
 import Profile from "@/components/wedding/sections/profile/profile";
+import Invitation from "@/components/wedding/sections/invitation/invitation";
 import { useLayoutEffect } from "react";
 
 export default function Wedding() {
@@ -21,6 +22,7 @@ export default function Wedding() {
       <Event />
       <Gallery />
       <ThankYou />
+      <Invitation />
     </div>
   );
 }

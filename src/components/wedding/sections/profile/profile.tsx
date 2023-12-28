@@ -67,9 +67,9 @@ export default function Profile() {
         className="bg-transparent overflow-hidden relative"
       >
         <div className="h-[50vh] md:h-screen relative">
-          <Image
+          <img
             ref={imageRef}
-            src={bgImage}
+            src={bgImage.src}
             alt="profile=bg-image"
             className="h-full object-cover object-center w-full"
           />

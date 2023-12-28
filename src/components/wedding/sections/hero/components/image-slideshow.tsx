@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import bgImage01 from "@/assets/wedding/images/_WIL2860.jpg";
-import bgImage02 from "@/assets/wedding/images/_WIL2893.jpg";
-import bgImage03 from "@/assets/wedding/images/_WIL2997.jpg";
-import bgImage04 from "@/assets/wedding/images/_WIL3012.jpg";
-
-const images = [bgImage01, bgImage02, bgImage03, bgImage04];
+const images = [
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL2860.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL2893.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL2997.jpg",
+  "https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/_WIL3012.jpg",
+];
 
 export default function ImageSlideshow() {
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -30,7 +30,7 @@ export default function ImageSlideshow() {
   return (
     <>
       {images.map((image, index) => (
-        <Image
+        <img
           key={index}
           src={image}
           alt={`image-${index}`}

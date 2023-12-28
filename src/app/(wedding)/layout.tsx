@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import LenisProvider from "@/providers/lenis.provider";
 import ToastProvider from "@/providers/toast.provider";
 import BgMusic from "@/components/wedding/audio/bg-music";
-import Invitation from "@/components/wedding/sections/invitation/invitation";
 import { AudioProvider } from "@/providers/audio.provider";
 import ScrollProgress from "@/components/wedding/scroll-progress/scroll-progress";
 
@@ -26,10 +25,9 @@ export default function Layout({ children }: LayoutProps) {
       <AudioProvider audioUrl="https://cgpa4czjw7bucnio.public.blob.vercel-storage.com/audio.mp3">
         <main id="wedding-invitation" className={`${montserrat.className}`}>
           {children}
-          <ScrollProgress />
-          <Invitation />
-          <BgMusic />
         </main>
+        <ScrollProgress />
+        <BgMusic />
       </AudioProvider>
       <ToastProvider />
     </LenisProvider>

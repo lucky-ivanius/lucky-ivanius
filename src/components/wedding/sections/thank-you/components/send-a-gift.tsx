@@ -26,12 +26,11 @@ import Accounts from "./accounts";
 const title = "Send a Gift";
 const giftEmoticon = <span className="ml-2">🎁</span>;
 export default function SendAGift() {
-  const [open, setOpen] = useState(false);
   // const isDesktop = useMediaQuery("(min-width: 768px)");
 
   // if (isDesktop)
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog>
       <DialogTrigger asChild>
         <Button type="button" className="w-full" variant="outline">
           {title}

@@ -29,7 +29,7 @@ export default function Invitation() {
   const guestName = params.get("to") ?? "Guest";
 
   const [open, setOpen] = useState(true);
-  // const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const { play } = useAudio();
 
@@ -39,12 +39,40 @@ export default function Invitation() {
     setOpen(open);
   };
 
-  // if (isDesktop)
+  if (isDesktop)
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Invitation</DialogTitle>
+            <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
+              <p>
+                Dear <strong>{guestName}</strong> 🥰
+                <br />
+                We invite you to join us for our wedding.
+              </p>
+              <p className="text-xs italic">
+                Please click the button below to open the invitation.
+              </p>
+            </div>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose asChild className="w-full">
+              <Button>
+                <EnvelopeOpenIcon className="mr-2" />
+                Open Invitation
+              </Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    );
+
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-11/12">
-        <DialogHeader>
-          <DialogTitle>Invitation</DialogTitle>
+    <Drawer open={open} onOpenChange={onOpenChange}>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>🤵🏼 💍 👰🏻</DrawerTitle>
           <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
             <p>
               Dear <strong>{guestName}</strong> 🥰
@@ -55,44 +83,16 @@ export default function Invitation() {
               Please click the button below to open the invitation.
             </p>
           </div>
-        </DialogHeader>
-        <DialogFooter>
-          <DialogClose asChild className="w-full">
+        </DrawerHeader>
+        <DrawerFooter>
+          <DrawerClose asChild>
             <Button>
               <EnvelopeOpenIcon className="mr-2" />
               Open Invitation
             </Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
-
-  // return (
-  //   <Drawer open={open} onOpenChange={onOpenChange}>
-  //     <DrawerContent>
-  //       <DrawerHeader>
-  //         <DrawerTitle>🤵🏼 💍 👰🏻</DrawerTitle>
-  //         <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-  //           <p>
-  //             Dear <strong>{guestName}</strong> 🥰
-  //             <br />
-  //             We invite you to join us for our wedding.
-  //           </p>
-  //           <p className="text-xs italic">
-  //             Please click the button below to open the invitation.
-  //           </p>
-  //         </div>
-  //       </DrawerHeader>
-  //       <DrawerFooter>
-  //         <DrawerClose asChild>
-  //           <Button>
-  //             <EnvelopeOpenIcon className="mr-2" />
-  //             Open Invitation
-  //           </Button>
-  //         </DrawerClose>
-  //       </DrawerFooter>
-  //     </DrawerContent>
-  //   </Drawer>
-  // );
 }

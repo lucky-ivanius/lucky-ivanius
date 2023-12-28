@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider } from "@/providers/theme.provider";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 
 const themeProviderProps: ThemeProviderProps = {
   attribute: "class",
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <ThemeProvider {...themeProviderProps}>{children}</ThemeProvider>
       </body>
-      {/* <Analytics /> */}
     </html>
   );
 }
