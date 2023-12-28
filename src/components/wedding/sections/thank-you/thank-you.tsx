@@ -89,6 +89,10 @@ export default function ThankYou() {
             },
             {
               opacity: 1,
+              delay: 0.5,
+              onStart: () => {
+                videoRef.current!.play();
+              },
             }
           )
           .from(thankYouWrapper, { yPercent: 100, ease: "sine.inOut" }, "<")
