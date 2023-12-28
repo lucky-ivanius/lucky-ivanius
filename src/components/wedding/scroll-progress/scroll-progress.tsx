@@ -1,32 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollProgress() {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
+  const scrollProgressRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-      const scrollPercentage = Math.round(
-        (scrollTop / (scrollHeight - clientHeight)) * 100
-      );
-      setScrollPercentage(scrollPercentage);
-    };
+  useGSAP(
+    () => {
+      const scrollProgress = scrollProgressRef.current;
+      if (!scrollProgress) return;
 
-    window.addEventListener("scroll", handleScroll);
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      tl.to(scrollProgress, {
+        width: "100%",
+        ease: "none",
+      });
+    },
+    { scope: scrollProgressRef }
+  );
 
   return (
     <div
-      className="fixed h-0.5 top-0 left-0 bg-gradient-to-r from-sky-800 via-blue-300 to-white"
-      style={{ width: `${scrollPercentage}%` }}
+      ref={scrollProgressRef}
+      className="fixed h-0.5 md:h-1 top-0 left-0 bg-gradient-to-r from-sky-800 via-blue-300 to-white"
     ></div>
   );
 }
