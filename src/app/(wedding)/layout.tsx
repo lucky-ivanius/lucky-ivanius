@@ -1,9 +1,15 @@
+import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import LenisProvider from "@/providers/lenis.provider";
+import ToastProvider from "@/providers/toast.provider";
+import BgMusic from "@/components/wedding/audio/bg-music";
+import Invitation from "@/components/wedding/sections/invitation/invitation";
+import { AudioProvider } from "@/providers/audio.provider";
+import ScrollProgress from "@/components/wedding/scroll-progress/scroll-progress";
 
-const font = Lato({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 interface LayoutProps {
@@ -11,9 +17,20 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Lucky Ivanius & Jessica Tionado Wedding",
+  title: "Wedding of Lucky Ivanius & Jessica Tionado",
 };
 
 export default function Layout({ children }: LayoutProps) {
-  return <div className={font.className}>{children}</div>;
+  return (
+    <LenisProvider>
+      <AudioProvider audioUrl="/audios/audio.mp3">
+        <main id="wedding-invitation" className={`${montserrat.className}`}>
+          {children}
+        </main>
+        <Invitation />
+        <BgMusic />
+      </AudioProvider>
+      <ToastProvider />
+    </LenisProvider>
+  );
 }
