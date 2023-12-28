@@ -133,7 +133,7 @@ export default function Gallery() {
             src={image}
             key={index}
             alt={`gallery-image-${index}`}
-            className="gallery-image object-cover object-center h-4/6 md:h-full w-1/2"
+            className="gallery-image object-cover object-center h-full w-1/2"
           />
         ))}
       </div>

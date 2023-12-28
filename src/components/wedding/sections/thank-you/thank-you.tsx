@@ -163,6 +163,14 @@ export default function ThankYou() {
       className="h-screen w-full bg-black text-white py-8 px-4 overflow-hidden"
     >
       <div className="h-full w-full relative overflow-hidden">
+        <div className="absolute w-full top-0">
+          <p
+            ref={keepScrollingTextRef}
+            className="text-center text-xs md:text-sm"
+          >
+            keep scrolling ...
+          </p>
+        </div>
         <div
           ref={videoWrapperRef}
           className="absolute w-full bottom-32 md:bottom-20 md:h-full md:w-2/3 translate-x-12 md:translate-x-32"
@@ -172,6 +180,7 @@ export default function ThankYou() {
             muted
             autoPlay
             loop
+            playsInline
             className="h-full w-full scale-[260%] md:scale-100"
           />
         </div>

@@ -13,6 +13,7 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -45,17 +46,17 @@ export default function Invitation() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Invitation</DialogTitle>
-            <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-              <p>
-                Dear <strong>{guestName}</strong> 🥰
-                <br />
-                We invite you to join us for our wedding.
-              </p>
-              <p className="text-xs italic">
-                Please click the button below to open the invitation.
-              </p>
-            </div>
           </DialogHeader>
+          <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
+            <p>
+              Dear <strong>{guestName}</strong> 🥰
+              <br />
+              We invite you to join us for our wedding.
+            </p>
+            <p className="text-xs italic">
+              Please click the button below to open the invitation.
+            </p>
+          </div>
           <DialogFooter>
             <DialogClose asChild className="w-full">
               <Button>
@@ -73,17 +74,17 @@ export default function Invitation() {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>🤵🏼 💍 👰🏻</DrawerTitle>
-          <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-            <p>
-              Dear <strong>{guestName}</strong> 🥰
-              <br />
-              We invite you to join us for our wedding.
-            </p>
-            <p className="text-xs italic">
-              Please click the button below to open the invitation.
-            </p>
-          </div>
         </DrawerHeader>
+        <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
+          <p>
+            Dear <strong>{guestName}</strong> 🥰
+            <br />
+            We invite you to join us for our wedding.
+          </p>
+          <p className="text-xs italic">
+            Please click the button below to open the invitation.
+          </p>
+        </div>
         <DrawerFooter>
           <DrawerClose asChild>
             <Button>

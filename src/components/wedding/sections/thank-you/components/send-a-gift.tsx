@@ -26,51 +26,51 @@ import Accounts from "./accounts";
 const title = "Send a Gift";
 const giftEmoticon = <span className="ml-2">🎁</span>;
 export default function SendAGift() {
-  // const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
-  // if (isDesktop)
+  if (isDesktop)
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button type="button" className="w-full" variant="outline">
+            {title}
+            {giftEmoticon}
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="w-11/12">
+          <DialogHeader>
+            <DialogTitle>
+              {title}
+              {giftEmoticon}
+            </DialogTitle>
+          </DialogHeader>
+          <Accounts />
+        </DialogContent>
+      </Dialog>
+    );
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <Drawer>
+      <DrawerTrigger asChild>
         <Button type="button" className="w-full" variant="outline">
           {title}
           {giftEmoticon}
         </Button>
-      </DialogTrigger>
-      <DialogContent className="w-11/12">
-        <DialogHeader>
-          <DialogTitle>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>
             {title}
             {giftEmoticon}
-          </DialogTitle>
-          <Accounts />
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+          </DrawerTitle>
+        </DrawerHeader>
+        <Accounts />
+        <DrawerFooter>
+          <DrawerClose asChild>
+            <Button>Close</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
-
-  // return (
-  //   <Drawer open={open} onOpenChange={setOpen}>
-  //     <DrawerTrigger asChild>
-  //       <Button type="button" className="w-full" variant="outline">
-  //         {title}
-  //         {giftEmoticon}
-  //       </Button>
-  //     </DrawerTrigger>
-  //     <DrawerContent>
-  //       <DrawerHeader>
-  //         <DrawerTitle>
-  //           {title}
-  //           {giftEmoticon}
-  //         </DrawerTitle>
-  //         <Accounts />
-  //       </DrawerHeader>
-  //       <DrawerFooter>
-  //         <DrawerClose asChild>
-  //           <Button>Close</Button>
-  //         </DrawerClose>
-  //       </DrawerFooter>
-  //     </DrawerContent>
-  //   </Drawer>
-  // );
 }
