@@ -27,9 +27,9 @@ export default function Layout({ children }: LayoutProps) {
         <main id="wedding-invitation" className={`${montserrat.className}`}>
           {children}
           <ScrollProgress />
+          <Invitation />
+          <BgMusic />
         </main>
-        <Invitation />
-        <BgMusic />
       </AudioProvider>
       <ToastProvider />
     </LenisProvider>
