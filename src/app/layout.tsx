@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <ThemeProvider {...themeProviderProps}>{children}</ThemeProvider>
       </body>
-      <Analytics />
+      {/* <Analytics /> */}
     </html>
   );
 }
