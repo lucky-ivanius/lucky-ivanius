@@ -66,20 +66,20 @@ export default function Gallery() {
             },
           }
         )
-        .fromTo(
-          imageWrapper,
-          {
-            rotateX: -20,
-            rotateY: -10,
-            scale: 1,
-          },
-          {
-            rotateX: 0,
-            rotateY: 0,
-            scale: 1.3,
-          },
-          "<"
-        )
+        // .fromTo(
+        //   imageWrapper,
+        //   {
+        //     rotateX: -20,
+        //     rotateY: -10,
+        //     scale: 1,
+        //   },
+        //   {
+        //     rotateX: 0,
+        //     rotateY: 0,
+        //     scale: 1.3,
+        //   },
+        //   "<"
+        // )
         .to(
           wrapper,
           {
@@ -144,7 +144,7 @@ export default function Gallery() {
             src={image}
             key={index}
             alt={`gallery-image-${index}`}
-            className="gallery-image object-cover object-center h-4/6 w-1/2"
+            className="gallery-image object-cover object-center h-4/6 md:h-full w-1/2"
           />
         ))}
       </div>
