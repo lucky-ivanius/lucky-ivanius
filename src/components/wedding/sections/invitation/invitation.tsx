@@ -42,7 +42,7 @@ export default function Invitation() {
   // if (isDesktop)
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="w-11/12">
         <DialogHeader>
           <DialogTitle>Invitation</DialogTitle>
           <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">

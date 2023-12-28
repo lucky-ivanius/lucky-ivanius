@@ -38,7 +38,7 @@ export default function SendAGift() {
           {giftEmoticon}
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="w-11/12">
         <DialogHeader>
           <DialogTitle>
             {title}
