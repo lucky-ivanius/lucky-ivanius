@@ -94,7 +94,7 @@ export default function Gallery() {
       const titleTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: wrapper,
-          start: "top 40%",
+          start: "20% 40%",
         },
       });
 
@@ -154,9 +154,9 @@ export default function Gallery() {
     <section
       ref={wrapperRef}
       id="gallery"
-      className=" bg-gradient-to-b via-white from-orange-200 to-sky-100 w-full h-screen flex flex-col items-center justify-between py-6 md:py-12 gap-6"
+      className=" bg-gradient-to-b via-white from-orange-200 to-sky-100 w-full h-[140vh] flex flex-col items-center justify-start py-6 md:py-12 gap-4"
     >
-      <div className="w-full h-1/6 flex flex-col items-center justify-center gap-4">
+      <div className="w-full h-[20vh] flex flex-col items-center justify-center gap-4">
         <h3
           ref={galleryTextWrapperRef}
           className={`${josefinSans.className} text-4xl md:text-6xl font-bold`}
@@ -181,7 +181,7 @@ export default function Gallery() {
       </div>
       <div
         ref={imageWrapperRef}
-        className="flex items-center justify-center h-5/6 w-11/12 rounded-md overflow-hidden"
+        className="flex items-center justify-center h-[80vh] w-11/12 rounded-md overflow-hidden"
       >
         <Carousel
           opts={{ loop: true, align: "start" }}
@@ -198,6 +198,8 @@ export default function Gallery() {
             {images.map((image, index) => (
               <CarouselItem key={index} className="rounded-md md:basis-1/3">
                 <Image
+                  priority
+                  placeholder="blur"
                   src={image}
                   alt={`gallery-image-${index}`}
                   className="rounded-md object-cover object-center h-full w-full"

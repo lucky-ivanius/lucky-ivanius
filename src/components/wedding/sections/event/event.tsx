@@ -72,6 +72,8 @@ export default function Event() {
   return (
     <section ref={wrapperRef} id="event" className="relative">
       <Image
+        placeholder="blur"
+        priority
         ref={eventImageRef}
         src={bgImage}
         alt="event-bg-image"

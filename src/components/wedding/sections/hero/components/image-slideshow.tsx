@@ -31,6 +31,8 @@ export default function ImageSlideshow() {
     <>
       {images.map((image, index) => (
         <Image
+          placeholder="blur"
+          priority
           key={index}
           src={image}
           alt={`image-${index}`}
