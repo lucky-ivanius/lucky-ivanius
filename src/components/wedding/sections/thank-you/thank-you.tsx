@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Yellowtail, Playfair_Display, Rakkas } from "next/font/google";
-import { HeartFilledIcon } from "@radix-ui/react-icons";
+import { DoubleArrowDownIcon, HeartFilledIcon } from "@radix-ui/react-icons";
 import {
   Form,
   FormControl,
@@ -113,7 +113,7 @@ export default function ThankYou() {
         const disappearTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: wrapper,
-            start: "top 20%",
+            start: "top 10%",
           },
         });
 
@@ -135,7 +135,9 @@ export default function ThankYou() {
   }, []);
 
   useEffect(() => {
-    if (videoRef.current) videoRef.current.play();
+    setTimeout(() => {
+      videoRef.current?.play();
+    }, 1000);
   }, []);
 
   const searchParams = useSearchParams();
@@ -177,13 +179,13 @@ export default function ThankYou() {
       className="h-screen w-full bg-black text-white py-8 px-4 overflow-hidden"
     >
       <div className="h-full w-full relative overflow-hidden">
-        <div className="absolute w-full top-0">
-          <p
-            ref={keepScrollingTextRef}
-            className="text-center text-xs md:text-sm"
-          >
-            keep scrolling ...
-          </p>
+        <div
+          ref={keepScrollingTextRef}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2"
+        >
+          <DoubleArrowDownIcon className="w-16 md:w-12 h-16 md:h-12" />
+          <DoubleArrowDownIcon className="w-16 md:w-12 h-16 md:h-12" />
+          <DoubleArrowDownIcon className="w-16 md:w-12 h-16 md:h-12" />
         </div>
         <div
           ref={videoWrapperRef}
