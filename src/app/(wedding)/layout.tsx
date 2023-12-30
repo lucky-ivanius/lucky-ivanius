@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <LenisProvider>
-      <AudioProvider audioUrl="/audios/audio.mp3">
+      <AudioProvider audioUrl="/audios/bgm.mp3">
         <main id="wedding-invitation" className={`${montserrat.className}`}>
           {children}
         </main>
-        <ScrollProgress />
+        {/* <ScrollProgress /> */}
         <BgMusic />
       </AudioProvider>
       <ToastProvider />
