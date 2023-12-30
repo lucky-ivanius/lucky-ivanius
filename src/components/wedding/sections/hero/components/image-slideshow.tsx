@@ -5,7 +5,7 @@ import Image from "next/image";
 import bgImage01 from "@/assets/wedding/images/_WIL2860.jpg";
 import bgImage02 from "@/assets/wedding/images/_WIL2893.jpg";
 import bgImage03 from "@/assets/wedding/images/_WIL2997.jpg";
-import bgImage04 from "@/assets/wedding/images/_WIL3012.jpg";
+import bgImage04 from "@/assets/wedding/images/_WIL2964.jpg";
 
 const images = [bgImage01, bgImage02, bgImage03, bgImage04];
 
@@ -34,7 +34,10 @@ export default function ImageSlideshow() {
           key={index}
           src={image}
           alt={`image-${index}`}
-          className={`h-screen object-cover object-center w-[5000px] absolute ${
+          style={{
+            objectPosition: "0% 25%",
+          }}
+          className={`h-screen object-cover w-[5000px] absolute ${
             index === currentImageIndex
               ? `opacity-${isFirstRender ? 0 : 100}`
               : "opacity-0"
