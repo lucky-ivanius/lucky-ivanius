@@ -9,9 +9,9 @@ export interface MessageData {
 }
 
 export async function getMessages(): Promise<MessageData[]> {
-  const message = await prisma.weddingMessage.findMany({
+  const messages = await prisma.weddingMessage.findMany({
     orderBy: { createdAt: "desc" },
   });
 
-  return message;
+  return messages;
 }
