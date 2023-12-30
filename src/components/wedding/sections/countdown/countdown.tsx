@@ -87,18 +87,18 @@ export default function Countdown() {
         .fromTo(
           headerText,
           { width: "0%" },
-          { width: "100%", duration: 1, ease: "power1.in" }
+          { width: "100%", duration: 0.6, ease: "power1.in" }
         )
         .fromTo(
           subHeaderText,
           { opacity: 0, yPercent: 100 },
-          { opacity: 1, yPercent: 0, ease: "power4.out", duration: 1.2 },
+          { opacity: 1, yPercent: 0, ease: "power4.out", duration: 0.7 },
           "<"
         )
         .fromTo(
           dateTextWrapper,
           { yPercent: -100 },
-          { yPercent: 0, duration: 0.6, delay: 0.4 },
+          { yPercent: 0, duration: 0.4 },
           "<"
         )
         .fromTo(
@@ -109,7 +109,7 @@ export default function Countdown() {
             opacity: 1,
             yPercent: 0,
             rotate: 0,
-            duration: 1,
+            duration: 0.5,
             ease: "elastic.out(1,0.3)",
           },
           "<"
