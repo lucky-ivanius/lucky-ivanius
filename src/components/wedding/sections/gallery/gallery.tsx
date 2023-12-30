@@ -42,6 +42,13 @@ import image18 from "@/assets/wedding/images/5.jpg";
 import image19 from "@/assets/wedding/images/6.jpg";
 import image20 from "@/assets/wedding/images/7.jpg";
 import image21 from "@/assets/wedding/images/8.jpg";
+import image22 from "@/assets/wedding/images/9.jpg";
+import image23 from "@/assets/wedding/images/10.jpg";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CaretLeftIcon,
+} from "@radix-ui/react-icons";
 
 const images = [
   image01,
@@ -52,19 +59,21 @@ const images = [
   image06,
   image07,
   image08,
-  image09,
+  // image09,
+  image12,
+  image13,
   image10,
   image11,
-  // image12,
-  // image13,
   image14,
   image15,
-  image16,
+  // image16,
+  image23,
   image17,
   image18,
   image19,
   image20,
-  image21,
+  // image21,
+  image22,
 ];
 
 export default function Gallery() {
@@ -72,6 +81,7 @@ export default function Gallery() {
   const imageWrapperRef = useRef<HTMLDivElement>(null);
   const galleryTextWrapperRef = useRef<HTMLParagraphElement>(null);
   const subtitleTextRef = useRef<HTMLParagraphElement>(null);
+  const swipeWrapperRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
     () => {
@@ -79,6 +89,7 @@ export default function Gallery() {
       const imageWrapper = imageWrapperRef.current!;
       const galleryTextWrapper = galleryTextWrapperRef.current!;
       const subtitleText = subtitleTextRef.current!;
+      const swipeWrapper = swipeWrapperRef.current!;
 
       const titleTimeline = gsap.timeline({
         scrollTrigger: {
@@ -105,7 +116,36 @@ export default function Gallery() {
             duration: 2,
           },
           "<80%"
+        )
+        .from(
+          swipeWrapper,
+          {
+            opacity: 0,
+            xPercent: 20,
+          },
+          "<90%"
         );
+
+      const backgroundTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapper,
+          start: "top top",
+          end: "bottom 90%",
+          scrub: true,
+        },
+      });
+
+      backgroundTimeline.fromTo(
+        wrapper,
+        {
+          background:
+            "linear-gradient(180deg, rgba(254,215,170,1) 0%, rgba(255,255,255,1) 50%, rgba(224,242,254,1) 100%)",
+        },
+        {
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(224,242,254,1) 70%, rgba(0,0,0,1) 100%)",
+        }
+      );
     },
     { scope: wrapperRef }
   );
@@ -129,6 +169,15 @@ export default function Gallery() {
         >
           We&apos;ve got a lot to show you!
         </p>
+        <div
+          ref={swipeWrapperRef}
+          className="flex w-full items-center justify-center text-xs"
+        >
+          <p className="text-gray-600 font-bold">Swipe Left</p>
+          <CaretLeftIcon className="ml-2 text-gray-600 " />
+          <CaretLeftIcon className="text-gray-600" />
+          <CaretLeftIcon className="text-gray-600" />
+        </div>
       </div>
       <div
         ref={imageWrapperRef}
@@ -136,14 +185,14 @@ export default function Gallery() {
       >
         <Carousel
           opts={{ loop: true, align: "start" }}
-          plugins={[
-            Autoplay({
-              delay: 2000,
-              stopOnFocusIn: false,
-              stopOnInteraction: false,
-              stopOnMouseEnter: false,
-            }),
-          ]}
+          // plugins={[
+          //   Autoplay({
+          //     delay: 2000,
+          //     stopOnFocusIn: false,
+          //     stopOnInteraction: false,
+          //     stopOnMouseEnter: false,
+          //   }),
+          // ]}
         >
           <CarouselContent>
             {images.map((image, index) => (
