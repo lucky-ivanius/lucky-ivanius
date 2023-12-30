@@ -4,7 +4,8 @@ import LenisProvider from "@/providers/lenis.provider";
 import ToastProvider from "@/providers/toast.provider";
 import BgMusic from "@/components/wedding/audio/bg-music";
 import { AudioProvider } from "@/providers/audio.provider";
-import ScrollProgress from "@/components/wedding/scroll-progress/scroll-progress";
+
+import image from "@/assets/wedding/images/front.jpg";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,7 +17,22 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Wedding of Lucky Ivanius & Jessica Tionado",
+  title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+  description: "Hi, We invite you to join us for our wedding. 💕",
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    description: "Hi, We invite you to join us for our wedding. 💕",
+    images: [
+      {
+        url: image.src,
+        width: 600,
+        height: 600,
+        alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
+      },
+    ],
+  },
 };
 
 export default function Layout({ children }: LayoutProps) {
