@@ -5,8 +5,6 @@ import ToastProvider from "@/providers/toast.provider";
 import BgMusic from "@/components/wedding/audio/bg-music";
 import { AudioProvider } from "@/providers/audio.provider";
 
-import image from "@/assets/wedding/images/front.jpg";
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -26,7 +24,7 @@ export const metadata: Metadata = {
     description: "Hi, We invite you to join us for our wedding. 💕",
     images: [
       {
-        url: image.src,
+        url: "/images/front.jpg",
         width: 600,
         height: 600,
         alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
