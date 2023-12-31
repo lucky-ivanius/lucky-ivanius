@@ -23,12 +23,19 @@ export const metadata: Metadata = {
     url: "/",
     title: "The Wedding of Lucky Ivanius & Jessica Tionado",
     description: "Hi, We invite you to join us for our wedding. 💕",
-    images: [
-      {
-        url: "/images/front.jpg",
-        alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
-      },
-    ],
+    images: {
+      url: "/images/front.jpg",
+      alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    description: "Hi, We invite you to join us for our wedding. 💕",
+    images: {
+      url: "/images/front.jpg",
+      alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    },
   },
 };
 
