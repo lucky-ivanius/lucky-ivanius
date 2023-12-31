@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   description: "Hi, We invite you to join us for our wedding. 💕",
   openGraph: {
     type: "website",
-    url: "/",
+    url: `https://${process.env.VERCEL_URL}`,
     title: "The Wedding of Lucky Ivanius & Jessica Tionado",
     description: "Hi, We invite you to join us for our wedding. 💕",
     images: [
       {
-        url: "/images/front.jpg",
+        url: `https://${process.env.VERCEL_URL}/images/front.jpg`,
         width: 600,
         height: 600,
         alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
