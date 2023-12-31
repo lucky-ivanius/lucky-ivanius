@@ -27,7 +27,7 @@ import { useState } from "react";
 export default function Invitation() {
   const params = useSearchParams();
 
-  const guestName = params.get("to") ?? "Guest";
+  const guestName = params.get("to");
 
   const [open, setOpen] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -48,11 +48,13 @@ export default function Invitation() {
             <DialogTitle>Invitation</DialogTitle>
           </DialogHeader>
           <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-            <p>
-              Dear <strong>{guestName}</strong> 🥰
-              <br />
-              We invite you to join us for our wedding.
-            </p>
+            {!guestName ? (
+              <p>
+                Dear <strong>{guestName}</strong> 🥰
+                <br />
+                We invite you to join us for our wedding.
+              </p>
+            ) : null}
             <p className="text-xs italic">
               Please click the button below to open the invitation.
             </p>
@@ -76,11 +78,13 @@ export default function Invitation() {
           <DrawerTitle>🤵🏼 💍 👰🏻</DrawerTitle>
         </DrawerHeader>
         <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-          <p>
-            Dear <strong>{guestName}</strong> 🥰
-            <br />
-            We invite you to join us for our wedding.
-          </p>
+          {!guestName ? (
+            <p>
+              Dear <strong>{guestName}</strong> 🥰
+              <br />
+              We invite you to join us for our wedding.
+            </p>
+          ) : null}
           <p className="text-xs italic">
             Please click the button below to open the invitation.
           </p>
