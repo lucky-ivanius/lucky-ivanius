@@ -26,8 +26,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/front.jpg",
-        width: 600,
-        height: 600,
         alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
       },
     ],
