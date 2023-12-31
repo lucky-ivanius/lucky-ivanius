@@ -8,7 +8,7 @@ import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 
-import bgImage from "@/assets/wedding/images/_WIL1769.jpg";
+import bgImage from "@/assets/wedding/images/11.jpg";
 import { weddingData } from "@/data/wedding";
 
 gsap.registerPlugin(ScrollTrigger);

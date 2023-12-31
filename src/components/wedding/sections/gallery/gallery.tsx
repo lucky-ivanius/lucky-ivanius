@@ -20,30 +20,26 @@ const josefinSans = Josefin_Sans({
   weight: ["400", "700"],
 });
 
-import image01 from "@/assets/wedding/images/_WIL1110.jpg";
-import image02 from "@/assets/wedding/images/_WIL1178.jpg";
-import image03 from "@/assets/wedding/images/_WIL1200.jpg";
-import image04 from "@/assets/wedding/images/_WIL1477.jpg";
-import image05 from "@/assets/wedding/images/_WIL1723.jpg";
-import image06 from "@/assets/wedding/images/_WIL1570.jpg";
-import image07 from "@/assets/wedding/images/_WIL1741.jpg";
-import image08 from "@/assets/wedding/images/_WIL1755.jpg";
-import image09 from "@/assets/wedding/images/_WIL1769.jpg";
-import image10 from "@/assets/wedding/images/_WIL1878.jpg";
-import image11 from "@/assets/wedding/images/_WIL1908.jpg";
-import image12 from "@/assets/wedding/images/_WIL3049.jpg";
-import image13 from "@/assets/wedding/images/_WIL3074.jpg";
+import image01 from "@/assets/wedding/images/01.jpg";
+import image02 from "@/assets/wedding/images/02.jpg";
+import image03 from "@/assets/wedding/images/03.jpg";
+import image06 from "@/assets/wedding/images/06.jpg";
+import image07 from "@/assets/wedding/images/07.jpg";
+import image08 from "@/assets/wedding/images/08.jpg";
+import image12 from "@/assets/wedding/images/12.jpg";
+import image13 from "@/assets/wedding/images/13.jpg";
+import image19 from "@/assets/wedding/images/19.jpg";
+import image20 from "@/assets/wedding/images/20.jpg";
+import image21 from "@/assets/wedding/images/21.jpg";
+import image22 from "@/assets/wedding/images/22.jpg";
+import image23 from "@/assets/wedding/images/23.jpg";
+import image24 from "@/assets/wedding/images/24.jpg";
+import image25 from "@/assets/wedding/images/25.jpg";
+import image26 from "@/assets/wedding/images/26.jpg";
+import image27 from "@/assets/wedding/images/27.jpg";
+import image28 from "@/assets/wedding/images/28.jpg";
+import image29 from "@/assets/wedding/images/29.jpg";
 
-import image14 from "@/assets/wedding/images/1.jpg";
-import image15 from "@/assets/wedding/images/2.jpg";
-import image16 from "@/assets/wedding/images/3.jpg";
-import image17 from "@/assets/wedding/images/4.jpg";
-import image18 from "@/assets/wedding/images/5.jpg";
-import image19 from "@/assets/wedding/images/6.jpg";
-import image20 from "@/assets/wedding/images/7.jpg";
-import image21 from "@/assets/wedding/images/8.jpg";
-import image22 from "@/assets/wedding/images/9.jpg";
-import image23 from "@/assets/wedding/images/10.jpg";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -54,26 +50,22 @@ const images = [
   image01,
   image02,
   image03,
-  image04,
-  image05,
   image06,
   image07,
   image08,
-  // image09,
   image12,
   image13,
-  image10,
-  image11,
-  image14,
-  image15,
-  // image16,
-  image23,
-  image17,
-  image18,
   image19,
   image20,
-  // image21,
+  image21,
   image22,
+  image23,
+  image24,
+  image25,
+  image26,
+  image27,
+  image28,
+  image29,
 ];
 
 export default function Gallery() {
@@ -117,13 +109,20 @@ export default function Gallery() {
           },
           "<80%"
         )
-        .from(
+        .fromTo(
           swipeWrapper,
           {
             opacity: 0,
-            xPercent: 20,
+            xPercent: 2,
           },
-          "<90%"
+          {
+            opacity: 1,
+            xPercent: 0,
+            repeat: -1,
+            repeatDelay: 0.5,
+            duration: 1.2,
+          },
+          "<"
         );
 
       const backgroundTimeline = gsap.timeline({
@@ -173,10 +172,10 @@ export default function Gallery() {
           ref={swipeWrapperRef}
           className="flex w-full items-center justify-center text-xs"
         >
-          <p className="text-gray-600 font-bold">Swipe Left</p>
-          <CaretLeftIcon className="ml-2 text-gray-600 " />
-          <CaretLeftIcon className="text-gray-600" />
-          <CaretLeftIcon className="text-gray-600" />
+          <CaretLeftIcon className="text-gray-800 -mr-2" />
+          <CaretLeftIcon className="text-gray-800 -mr-2" />
+          <CaretLeftIcon className="text-gray-800" />
+          <p className="text-gray-800 font-bold">Swipe Left</p>
         </div>
       </div>
       <div

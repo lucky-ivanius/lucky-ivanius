@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import bgImage01 from "@/assets/wedding/images/_WIL2860.jpg";
-import bgImage02 from "@/assets/wedding/images/_WIL2893.jpg";
-import bgImage03 from "@/assets/wedding/images/_WIL2997.jpg";
-import bgImage04 from "@/assets/wedding/images/_WIL2964.jpg";
+import bgImage01 from "@/assets/wedding/images/14.jpg";
+import bgImage02 from "@/assets/wedding/images/15.jpg";
+import bgImage03 from "@/assets/wedding/images/16.jpg";
+import bgImage04 from "@/assets/wedding/images/17.jpg";
 
 const images = [bgImage01, bgImage02, bgImage03, bgImage04];
 

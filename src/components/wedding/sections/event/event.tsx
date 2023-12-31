@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { SewingPinFilledIcon } from "@radix-ui/react-icons";
 
-import bgImage from "@/assets/wedding/images/_WIL1352.jpg";
+import bgImage from "@/assets/wedding/images/05.jpg";
 import { weddingData } from "@/data/wedding";
 
 gsap.registerPlugin(ScrollTrigger);
