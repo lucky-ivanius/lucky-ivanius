@@ -18,7 +18,23 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   title: "Lucky Ivanius",
-  description: "Personal portfolio",
+  metadataBase: new URL(`https://${process.env.URL}`),
+  openGraph: {
+    type: "website",
+    title: "Lucky Ivanius",
+    images: {
+      url: "/images/front.jpg",
+      alt: "Lucky Ivanius",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lucky Ivanius",
+    images: {
+      url: "/images/front.jpg",
+      alt: "Lucky Ivanius",
+    },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps) {
