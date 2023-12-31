@@ -3,6 +3,7 @@ import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider } from "@/providers/theme.provider";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const themeProviderProps: ThemeProviderProps = {
   attribute: "class",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <ThemeProvider {...themeProviderProps}>{children}</ThemeProvider>
       </body>
       <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
