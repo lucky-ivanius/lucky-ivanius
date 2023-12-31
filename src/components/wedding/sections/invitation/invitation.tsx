@@ -27,6 +27,7 @@ import { useState } from "react";
 export default function Invitation() {
   const params = useSearchParams();
 
+  const isInvited = params.has("to");
   const guestName = params.get("to");
 
   const [open, setOpen] = useState(true);
@@ -48,7 +49,7 @@ export default function Invitation() {
             <DialogTitle>Invitation</DialogTitle>
           </DialogHeader>
           <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-            {!guestName ? (
+            {isInvited ? (
               <p>
                 Dear <strong>{guestName}</strong> 🥰
                 <br />
@@ -78,7 +79,7 @@ export default function Invitation() {
           <DrawerTitle>🤵🏼 💍 👰🏻</DrawerTitle>
         </DrawerHeader>
         <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
-          {!guestName ? (
+          {isInvited ? (
             <p>
               Dear <strong>{guestName}</strong> 🥰
               <br />
