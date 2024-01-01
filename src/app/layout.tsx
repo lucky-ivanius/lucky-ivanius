@@ -22,18 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Lucky Ivanius",
-    images: {
-      url: "/images/front.jpg",
-      alt: "Lucky Ivanius",
-    },
   },
   twitter: {
     card: "summary_large_image",
     title: "Lucky Ivanius",
-    images: {
-      url: "/images/front.jpg",
-      alt: "Lucky Ivanius",
-    },
   },
 };
 
