@@ -37,14 +37,9 @@ import image24 from "@/assets/wedding/images/24.jpg";
 import image25 from "@/assets/wedding/images/25.jpg";
 import image26 from "@/assets/wedding/images/26.jpg";
 import image27 from "@/assets/wedding/images/27.jpg";
-import image28 from "@/assets/wedding/images/28.jpg";
 import image29 from "@/assets/wedding/images/29.jpg";
 
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  CaretLeftIcon,
-} from "@radix-ui/react-icons";
+import { CaretLeftIcon } from "@radix-ui/react-icons";
 
 const images = [
   image01,
@@ -64,7 +59,6 @@ const images = [
   image25,
   image26,
   image27,
-  image28,
   image29,
 ];
 

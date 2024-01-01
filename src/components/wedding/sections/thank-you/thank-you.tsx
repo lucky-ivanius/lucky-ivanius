@@ -137,7 +137,7 @@ export default function ThankYou() {
   useEffect(() => {
     setTimeout(() => {
       videoRef.current?.play();
-    }, 1000);
+    }, 2000);
   }, []);
 
   const searchParams = useSearchParams();
