@@ -1,7 +1,6 @@
 # Hi 👋 I'm Lucky Ivanius
 
-Experienced self-taught software developer with a strong passion for software design and architecture. \
-Skilled in web app development with a proven ability to architect well-structured software systems that balance functionality, scalability, and maintainability.
+Highly motivated self-taught software engineer with a passion for building robust, scalable, and maintainable applications using TypeScript/JavaScript and Node.js.
 
 I'm based in Indonesia and I'm always open to connecting with others.\
 Feel free to reach out to me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com).
