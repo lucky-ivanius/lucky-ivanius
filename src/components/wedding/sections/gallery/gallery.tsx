@@ -29,6 +29,7 @@ import image06 from "@/assets/wedding/images/06.jpg";
 import image07 from "@/assets/wedding/images/07.jpg";
 import image08 from "@/assets/wedding/images/08.jpg";
 import image09 from "@/assets/wedding/images/09.jpg";
+import image10 from "@/assets/wedding/images/10.jpg";
 import image12 from "@/assets/wedding/images/12.jpg";
 import image13 from "@/assets/wedding/images/13.jpg";
 import image19 from "@/assets/wedding/images/19.jpg";
@@ -54,6 +55,7 @@ const images = [
   image07,
   image08,
   image09,
+  image10,
   image12,
   image13,
   image19,
