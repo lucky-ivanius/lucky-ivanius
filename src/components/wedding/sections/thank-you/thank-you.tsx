@@ -1,5 +1,5 @@
 "use client";
-import { Yellowtail, Playfair_Display } from "next/font/google";
+import { Yellowtail, Playfair_Display, Josefin_Sans } from "next/font/google";
 import { DoubleArrowDownIcon, HeartFilledIcon } from "@radix-ui/react-icons";
 import gsap from "gsap";
 import { ScrollToPlugin, ScrollTrigger } from "gsap/all";
@@ -12,6 +12,10 @@ const yellowtail = Yellowtail({ subsets: ["latin"], weight: "400" });
 const playfair_display = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export default function ThankYou() {
@@ -98,7 +102,7 @@ export default function ThankYou() {
       <div className="flex flex-col items-center justify-center gap-4 w-full h-full overflow-hidden">
         <p
           ref={messageRef}
-          className="h-1/6 w-full md:w-1/3 z-20 text-sm md:text-xl text-center font-medium text-transparent bg-clip-text bg-gradient-to-br from-gray-100 to-black"
+          className={`${josefinSans.className} h-1/6 w-full md:w-1/3 z-20 text-sm md:text-xl text-center font-medium text-transparent bg-clip-text bg-gradient-to-br from-gray-100 to-black`}
         >
           Let&apos;s make memories together!
           <br />
