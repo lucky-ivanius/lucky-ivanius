@@ -29,7 +29,7 @@ export default function Home() {
         <p className="text-sm font-medium">This page is under development 💻</p>
         <div className="grid grid-cols-4 justify-items-center gap-2 w-1/2">
           <Button
-            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400"
+            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400 focus-visible:ring-0"
             size="icon"
             variant="ghost"
             asChild
@@ -39,7 +39,7 @@ export default function Home() {
             </Link>
           </Button>
           <Button
-            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400"
+            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400 focus-visible:ring-0"
             size="icon"
             variant="ghost"
             asChild
@@ -49,7 +49,7 @@ export default function Home() {
             </Link>
           </Button>
           <Button
-            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400"
+            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400 focus-visible:ring-0"
             size="icon"
             variant="ghost"
             asChild
@@ -59,7 +59,7 @@ export default function Home() {
             </Link>
           </Button>
           <Button
-            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400"
+            className="hover:bg-transparent hover:text-gray-400 focus-visible:bg-transparent focus-visible:text-gray-400 focus-visible:ring-0"
             size="icon"
             variant="ghost"
             asChild
