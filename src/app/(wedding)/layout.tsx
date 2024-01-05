@@ -16,25 +16,25 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${process.env.URL}`),
-  title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+  title: "The Wedding of Lucky Ivanius & Jessica Tionado 💍",
   description: "Hi, we invite you to join us for our wedding. 💕",
   openGraph: {
     type: "website",
     url: "/",
-    title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    title: "The Wedding of Lucky Ivanius & Jessica Tionado 💍",
     description: "Hi, we invite you to join us for our wedding. 💕",
     images: {
       url: "/images/preview.jpg",
-      alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
+      alt: "preview",
     },
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Wedding of Lucky Ivanius & Jessica Tionado",
+    title: "The Wedding of Lucky Ivanius & Jessica Tionado 💍",
     description: "Hi, we invite you to join us for our wedding. 💕",
     images: {
       url: "/images/preview.jpg",
-      alt: "The Wedding of Lucky Ivanius & Jessica Tionado",
+      alt: "preview",
     },
   },
 };
