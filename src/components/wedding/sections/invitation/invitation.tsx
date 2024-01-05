@@ -46,7 +46,7 @@ export default function Invitation() {
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Invitation</DialogTitle>
+            <DialogTitle>Invitation 🤵🏼 💍 👰🏻</DialogTitle>
           </DialogHeader>
           <div className="w-full h-full flex flex-col items-center md:items-start justify-center pt-4 gap-4">
             {isInvited ? (
