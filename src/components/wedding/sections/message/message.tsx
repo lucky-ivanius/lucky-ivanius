@@ -168,7 +168,7 @@ export default function Message() {
     >
       <div
         ref={formWrapperRef}
-        className="flex flex-col items-center justify-start w-full md:w-1/2 md:h-auto h-full gap-2 bg-gradient-to-b from-lime-50 to-sky-100 border-2 border-sky-200 rounded p-4"
+        className="flex flex-col items-center justify-start w-full md:w-1/3 md:h-auto h-full gap-2 bg-gradient-to-b from-lime-50 to-sky-100 border-2 border-sky-200 rounded p-4"
       >
         <h3
           className={`${rakkas.className} text-2xl md:text-4xl bg-gradient-to-r from-purple-900 via-pink-500 to-fuchsia-600 bg-clip-text text-transparent mb-2`}
@@ -178,7 +178,7 @@ export default function Message() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col items-start justify-start gap-2 w-full"
+            className="flex flex-col items-center justify-start gap-2 w-full"
           >
             <FormField
               control={form.control}
@@ -219,7 +219,7 @@ export default function Message() {
             <Button
               disabled={loading}
               type="submit"
-              className="w-full bg-blue-600 text-white disabled:bg-blue-800 hover:bg-blue-700"
+              className="w-full md:w-1/3 bg-blue-600 text-white disabled:bg-blue-800 hover:bg-blue-700 mt-2"
               variant="secondary"
             >
               {loading ? "Submitting ..." : "Submit"}
@@ -227,14 +227,14 @@ export default function Message() {
           </form>
         </Form>
         <p ref={orTextRef}>or</p>
-        <div ref={sendAGiftRef} className="w-full">
+        <div ref={sendAGiftRef} className="w-full md:w-1/3">
           <SendAGift />
         </div>
       </div>
       <ScrollArea
         ref={messageRef}
         data-lenis-prevent={!!messages}
-        className="w-full md:w-1/2 h-full border rounded-md border-yellow-600 p-4"
+        className="w-full md:w-1/3 h-full border rounded-md border-yellow-600 p-4"
         id="messages-scroll-area"
       >
         {!messages.length ? (
