@@ -30,7 +30,7 @@ export default function SendAGift() {
           <Button
             id="send-a-gift"
             type="button"
-            className="w-full bg-gradient-to-r from-pink-400 to-purple-700"
+            className="w-full bg-gradient-to-r from-pink-600 via-purple-700 to-fuchsia-700"
           >
             Send a gift
             <span className="ml-2">🎁</span>
