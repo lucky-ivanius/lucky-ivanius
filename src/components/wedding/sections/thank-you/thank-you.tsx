@@ -47,7 +47,7 @@ export default function ThankYou() {
           {
             opacity: 1,
             delay: 0.5,
-            onStart: () => {
+            onComplete: () => {
               videoRef.current!.play();
             },
           }
@@ -86,12 +86,6 @@ export default function ThankYou() {
     },
     { scope: wrapperRef }
   );
-
-  useEffect(() => {
-    setTimeout(() => {
-      videoRef.current?.play();
-    }, 2000);
-  }, []);
 
   return (
     <section
