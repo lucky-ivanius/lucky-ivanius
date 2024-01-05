@@ -18,14 +18,26 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   title: "Lucky Ivanius",
+  description: "This page is under development 💻",
   metadataBase: new URL(`https://${process.env.URL}`),
   openGraph: {
     type: "website",
+    url: "/",
     title: "Lucky Ivanius",
+    description: "This page is under development 💻",
+    images: {
+      url: "/images/me.jpg",
+      alt: "lucky-ivanius",
+    },
   },
   twitter: {
     card: "summary_large_image",
     title: "Lucky Ivanius",
+    description: "This page is under development 💻",
+    images: {
+      url: "/images/me.jpg",
+      alt: "lucky-ivanius",
+    },
   },
 };
 
