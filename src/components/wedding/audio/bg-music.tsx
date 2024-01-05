@@ -11,12 +11,13 @@ export default function BgMusic() {
     <Button
       onClick={toggle}
       variant="secondary"
-      className="fixed bottom-2 left-2 rounded-full w-12 h-12"
+      size="icon"
+      className="fixed bottom-2 left-2 md:bottom-4 md:left-4 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-rose-300 to-lime-300 ring md:ring-2 ring-ring ring-indigo-500"
     >
       {isPlaying ? (
-        <PauseIcon className="w-full h-full" />
+        <PauseIcon className="w-4 h-4 md:w-6 md:h-6 stroke-1 md:stroke-[0.5] stroke-indigo-500" />
       ) : (
-        <PlayIcon className="w-full h-full" />
+        <PlayIcon className="w-4 h-4 md:w-6 md:h-6 stroke-1 md:stroke-[0.5] stroke-indigo-500" />
       )}
     </Button>
   );
