@@ -23,9 +23,8 @@ export default function Accounts() {
             className="object-contain object-center w-1/2"
           />
           <div className="flex flex-col items-start justify-start gap-2 w-1/2">
-            <p className="text-black font-bold text-xl">{data.name}</p>
-            <p className="text-black text-lg">{data.holder}</p>
-            <p>{data.accNumber}</p>
+            <p className="text-black text-xl font-bold">{data.holder}</p>
+            <p className="">{data.accNumber}</p>
             <Button
               variant="outline"
               onClick={() => copyToClipboard(data.accNumber)}

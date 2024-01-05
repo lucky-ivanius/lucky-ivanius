@@ -7,6 +7,7 @@ import ThankYou from "@/components/wedding/sections/thank-you/thank-you";
 import Hero from "@/components/wedding/sections/hero/hero";
 import Profile from "@/components/wedding/sections/profile/profile";
 import Invitation from "@/components/wedding/sections/invitation/invitation";
+import Message from "@/components/wedding/sections/message/message";
 import { useEffect } from "react";
 
 export default function Wedding() {
@@ -20,6 +21,7 @@ export default function Wedding() {
       <Profile />
       <Countdown />
       <Event />
+      <Message />
       <Gallery />
       <ThankYou />
       <Invitation />

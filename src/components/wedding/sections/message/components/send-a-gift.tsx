@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -13,18 +12,14 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { useState } from "react";
 import Accounts from "./accounts";
 
-const title = "Send a Gift";
-const giftEmoticon = <span className="ml-2">🎁</span>;
 export default function SendAGift() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -32,16 +27,20 @@ export default function SendAGift() {
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <Button type="button" className="w-full" variant="outline">
-            {title}
-            {giftEmoticon}
+          <Button
+            id="send-a-gift"
+            type="button"
+            className="w-full bg-gradient-to-r from-pink-400 to-purple-700"
+          >
+            Send a gift
+            <span className="ml-2">🎁</span>
           </Button>
         </DialogTrigger>
         <DialogContent className="w-11/12">
           <DialogHeader>
             <DialogTitle>
-              {title}
-              {giftEmoticon}
+              Send a gift
+              <span className="ml-2">🎁</span>
             </DialogTitle>
           </DialogHeader>
           <Accounts />
@@ -52,16 +51,20 @@ export default function SendAGift() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button type="button" className="w-full" variant="outline">
-          {title}
-          {giftEmoticon}
+        <Button
+          id="send-a-gift"
+          type="button"
+          className="w-full bg-gradient-to-r from-pink-600 via-purple-700 to-fuchsia-700"
+        >
+          Send a gift
+          <span className="ml-2">🎁</span>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>
-            {title}
-            {giftEmoticon}
+            Send a gift
+            <span className="ml-2">🎁</span>
           </DrawerTitle>
         </DrawerHeader>
         <Accounts />
