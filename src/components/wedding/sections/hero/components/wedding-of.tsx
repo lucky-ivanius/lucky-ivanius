@@ -47,7 +47,7 @@ export default function WeddingOf() {
       ref={wrapperRef}
       className="w-full py-4 flex flex-col items-center justify-center text-white bg-slate-900 bg-opacity-10"
     >
-      <p className={`${josefinSans.className} mb-4 text-xl`}>the wedding of</p>
+      <p className={`${josefinSans.className} mb-4 text-xl`}>The Wedding of</p>
       <CoupleName id="groom" {...weddingData.couple.groom} />
       <p
         className={`${beauRivage.className} text-center text-5xl leading-relaxed`}
