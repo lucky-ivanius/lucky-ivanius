@@ -143,7 +143,7 @@ export default function Profile() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 318"
-          className="fill-current bg-transparent text-sky-100 absolute bottom-0"
+          className="fill-current bg-transparent text-sky-100 absolute bottom-0 translate-y-1"
         >
           <path
             fillOpacity="1"
