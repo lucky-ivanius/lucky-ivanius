@@ -76,7 +76,7 @@ export default function Profile() {
           <div className="absolute top-0 h-full w-full flex items-center justify-center gap-y-80">
             <div
               ref={brideSocialRef}
-              className="absolute bottom-[18%] left-[2.5%] md:bottom-[30%] md:left-[5%] flex flex-col items-center justify-center rounded-md bg-gradient-to-r from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
+              className="absolute bottom-[18%] left-[2.5%] md:bottom-[40%] md:left-[5%] flex flex-col items-center justify-center rounded-md bg-gradient-to-r from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
             >
               <p className="font-semibold">
                 {weddingData.couple.bride.firstName}{" "}
