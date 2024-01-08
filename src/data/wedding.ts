@@ -1,11 +1,15 @@
 import bca from "@/assets/wedding/images/bca.png";
-import binancePay from "@/assets/wedding/images/binance-qr.png";
 
 export const weddingData = {
   couple: {
     groom: {
       firstName: "Lucky",
       lastName: "Ivanius",
+      parents: {
+        desc: "The son of",
+        father: "Mr. Tan Cai Hua",
+        mother: "Mrs. Hong Jin Qian",
+      },
       socials: {
         instagram: "luckzivanius",
       },
@@ -13,6 +17,11 @@ export const weddingData = {
     bride: {
       firstName: "Jessica",
       lastName: "Tionado",
+      parents: {
+        desc: "The only daughter of",
+        father: "Mr. Zhang Ping Kuang (✝)",
+        mother: "Mrs. Ng Kiaw Lien",
+      },
       socials: {
         instagram: "jessicationado",
       },

@@ -66,7 +66,7 @@ export default function Profile() {
         id="profile"
         className="bg-transparent overflow-hidden relative"
       >
-        <div className="h-[50vh] md:h-screen relative">
+        <div className="h-[80vh] md:h-screen relative">
           <Image
             ref={imageRef}
             src={bgImage}
@@ -76,12 +76,24 @@ export default function Profile() {
           <div className="absolute top-0 h-full w-full flex items-center justify-center gap-y-80">
             <div
               ref={brideSocialRef}
-              className="absolute bottom-[25%] left-[5%] md:bottom-[40%] md:left-[25%] flex flex-col items-center justify-center rounded-md bg-gradient-to-r from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
+              className="absolute bottom-[18%] left-[2.5%] md:bottom-[30%] md:left-[5%] flex flex-col items-center justify-center rounded-md bg-gradient-to-r from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
             >
               <p className="font-semibold">
                 {weddingData.couple.bride.firstName}{" "}
                 {weddingData.couple.bride.lastName}
               </p>
+              <div className="flex flex-col md:flex-row md:gap-1 text-xs md:text-sm italic text-gray-200">
+                <p className="text-center">
+                  {weddingData.couple.bride.parents.desc}
+                </p>
+                <p className="text-center">
+                  {weddingData.couple.bride.parents.father}
+                </p>
+                <p className="text-center">&</p>
+                <p className="text-center">
+                  {weddingData.couple.bride.parents.mother}
+                </p>
+              </div>
               <Link
                 href={parseInstagramUrl(
                   weddingData.couple.bride.socials.instagram
@@ -96,12 +108,24 @@ export default function Profile() {
             </div>
             <div
               ref={groomSocialRef}
-              className="absolute top-[10%] right-[5%] md:top-[15%] md:right-[25%] flex flex-col items-center justify-center rounded-md bg-gradient-to-l from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
+              className="absolute top-[2.5%] right-[2.5%] md:top-[10%] md:right-[5%] flex flex-col items-center justify-center rounded-md bg-gradient-to-l from-slate-800 to-transparent bg-opacity-40 gap-4 p-4 text-white"
             >
               <p className="font-semibold">
                 {weddingData.couple.groom.firstName}{" "}
                 {weddingData.couple.groom.lastName}
               </p>
+              <div className="flex flex-col md:flex-row md:gap-1 text-xs md:text-sm italic text-gray-200">
+                <p className="text-center">
+                  {weddingData.couple.groom.parents.desc}
+                </p>
+                <p className="text-center">
+                  {weddingData.couple.groom.parents.father}
+                </p>
+                <p className="text-center">&</p>
+                <p className="text-center">
+                  {weddingData.couple.groom.parents.mother}
+                </p>
+              </div>
               <Link
                 href={parseInstagramUrl(
                   weddingData.couple.groom.socials.instagram
