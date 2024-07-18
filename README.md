@@ -1,6 +1,6 @@
 # Hi 👋 I'm Lucky Ivanius
 
-Highly motivated self-taught software engineer with a passion for building robust, scalable, and maintainable applications using TypeScript/JavaScript and Node.js.
+Highly motivated self-taught software engineer with a passion for building robust, scalable, and maintainable applications.
 
 I'm based in Indonesia and I'm always open to connecting with others.\
 Feel free to reach out to me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com).
