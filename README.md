@@ -5,8 +5,6 @@ Highly motivated self-taught software engineer with a passion for building robus
 I'm based in Indonesia and I'm always open to connecting with others.\
 Feel free to reach out to me at [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com).
 
-![Top Language](https://github-readme-stats.vercel.app/api/top-langs/?username=lucky-ivanius&layout=compact)
-
 ### Skills
 
 <p align="left">
@@ -108,3 +106,5 @@ Feel free to reach out to me at [luckzivanius@gmail.com](mailto:luckzivanius@gma
   /></a>
 </p>
 
+
+![Top Language](https://github-readme-stats.vercel.app/api/top-langs/?username=lucky-ivanius&layout=compact)
