@@ -2,7 +2,7 @@
 
 ### **Software Engineer**
 
-<img src="./assets/icons/mail.svg" width="16" alt="Email"> [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com)
+[luckzivanius@gmail.com](mailto:luckzivanius@gmail.com)
 
 ## Profile
 
