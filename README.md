@@ -2,9 +2,7 @@
 
 ### **Software Engineer**
 
-<div style="display: flex; align-items: center; gap: 4px;">
-<img src="./assets/icons/mail.svg" width="18" alt="Email"> <a href="mailto:luckzivanius@gmail.com" target="_blank" rel="noopener noreferrer">luckzivanius@gmail.com</a>
-</div>
+<img src="./assets/icons/mail.svg" width="16" alt="Email"> [luckzivanius@gmail.com](mailto:luckzivanius@gmail.com)
 
 ## Profile
 
