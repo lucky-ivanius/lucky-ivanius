@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+
+const { title = "Lucky Ivanius — Software Engineer" } = Astro.props;
 ---
 
 <!doctype html>
@@ -8,14 +10,30 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta name="description" content="Lucky Ivanius — Software Engineer" />
+    <title>{title}</title>
   </head>
   <body>
     <slot />
   </body>
 </html>
+
+<script>
+  import Lenis from "lenis";
+
+  // Lenis keeps the browser's native scroll position and only interpolates it,
+  // so scroll-driven code (the hero parallax and marquee) keeps working as-is.
+  // `respectReducedMotion` is on by default, which skips smoothing for users
+  // who ask for less motion.
+  new Lenis({
+    autoRaf: true,
+    // The nav links are hash anchors, so let Lenis glide to them too.
+    anchors: true,
+    // Cut the glide short when a link starts navigating to another page.
+    stopInertiaOnNavigate: true,
+  });
+</script>
 
 <style>
   html,

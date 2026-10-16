@@ -1,0 +1,201 @@
+---
+import { RiGlobalLine } from "@remixicon/react";
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Experiences", href: "#experiences" },
+  { label: "Contact", href: "#contact" },
+];
+
+// Four repeats give two identical halves so the row can loop seamlessly.
+const marqueeItems = Array.from({ length: 4 }, (_, index) => index);
+---
+
+<section
+  class="dark relative isolate flex h-320 w-full overflow-clip bg-background/90"
+  aria-label="Introduction"
+>
+  <h1 class="sr-only">Lucky Ivanius — Software Engineer</h1>
+
+  <!-- Portrait -->
+  <img
+    src="/images/portrait.png"
+    alt="Lucky Ivanius"
+    width="1280"
+    height="1600"
+    data-parallax="portrait"
+    class="pointer-events-none absolute top-36 left-[calc(50%-16px)] -z-10 -translate-x-1/2 object-cover object-center select-none"
+  />
+
+  <!-- Name marquee -->
+  <div class="absolute inset-x-0 bottom-48 overflow-clip">
+    <div class="flex w-max" data-marquee aria-hidden="true">
+      {marqueeItems.map(() => (
+        <div class="flex items-center">
+          <span class="text-[268px] leading-none whitespace-nowrap text-foreground font-heading">
+            Lucky Ivanius
+          </span>
+          <span class="px-[57.6px] text-[268px] leading-none text-foreground font-heading">
+            —
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav
+    class="absolute inset-x-0 top-0 z-10 flex w-full items-start justify-between p-8"
+    aria-label="Primary"
+  >
+    <a
+      href="/"
+      class="flex items-center px-8 text-xl font-heading leading-6 text-foreground"
+    >
+      Lucky Ivanius
+    </a>
+
+    <div class="flex">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="group flex flex-col items-center px-8 text-xl font-heading leading-6 text-foreground gap-4"
+        >
+          {item.label}
+          <span class="size-0 opacity-0 group-hover:opacity-100 group-hover:size-2 transition-all duration-250 bg-primary"></span>
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <div class="flex w-full items-center justify-between">
+    <!-- Based in Indonesia badge -->
+    <div class="flex items-center rounded-r-full bg-muted-foreground/70 pl-6 gap-8">
+      <p class="text-lg leading-6 text-foreground">
+        Based
+        <br />
+        in
+        <br />
+        Indonesia
+      </p>
+      <span class="flex size-20 items-center justify-center rounded-full bg-muted text-foreground [&>svg]:size-12 m-2">
+        <RiGlobalLine aria-hidden="true" />
+      </span>
+    </div>
+    <!-- Role -->
+    <div class="flex items-center justify-center pr-48">
+      <p class="text-2xl leading-6 text-muted-foreground">Software Engineer</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    // Scroll parallax: the portrait trails the page as the hero scrolls away, so
+    // it reads as a slower, deeper layer behind the marquee and navigation.
+    const portrait = document.querySelector<HTMLElement>(
+      '[data-parallax="portrait"]',
+    );
+    const hero = portrait?.closest("section");
+
+    if (portrait && hero) {
+      // Fraction of the hero height the portrait lags behind by.
+      const STRENGTH = 0.22;
+
+      gsap.fromTo(
+        portrait,
+        { y: 0 },
+        {
+          // Function-based so the distance re-measures with the hero's height.
+          y: () => hero.offsetHeight * STRENGTH,
+          ease: "none",
+          scrollTrigger: {
+            trigger: hero,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+    }
+
+    // Continuous marquee: the row never stops. Its direction follows the last
+    // scroll — left after scrolling down, right after scrolling up — and its pace
+    // is tied to how fast the page is scrolling, capped so a fling can't launch
+    // it. When the page is still, it keeps drifting at a steady base speed.
+    const marquee = document.querySelector<HTMLElement>("[data-marquee]");
+
+    if (marquee) {
+      // Seconds for one half-width to pass at the resting (unscrolled) speed.
+      const LOOP_DURATION = 40;
+      // How much the page's scroll speed rubs off on the row, 1 = 1:1.
+      const SENSITIVITY = 1;
+      // How quickly the drift settles into a new pace, roughly per second.
+      const EASING = 8;
+      // Cap on the drift, as a multiple of the resting speed.
+      const MAX_SPEED_MULTIPLIER = 3;
+
+      // The row's offset is kept unbounded and only wrapped into one half for
+      // paint, so it can drift forever in either direction (a GSAP tween with a
+      // negative timeScale would instead stop dead at its start). quickSetter
+      // applies the transform on the compositor without re-parsing properties.
+      const setX = gsap.quickSetter(marquee, "x", "px");
+      const halfWidth = () => marquee.scrollWidth / 2;
+
+      let position = 0; // Unbounded px offset; wrapped into one half for paint.
+      let speed = 0; // Signed px/s, eased toward the scroll-derived target.
+      let scrollSpeed = 0; // Latest |scroll velocity| in px/s.
+      let direction = 1; // +1 drifts left (scroll down), -1 drifts right.
+      let scrolling = false;
+
+      // Scroll velocity sets the drift's pace and direction.
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+          const velocity = self.getVelocity(); // Signed px/s, + = scrolling down.
+          if (velocity === 0) return;
+
+          scrolling = true;
+          direction = velocity > 0 ? 1 : -1;
+          scrollSpeed = Math.abs(velocity);
+        },
+      });
+
+      gsap.ticker.add((_time, deltaTime) => {
+        // Clamp dt so a background tab or long frame can't jump the row.
+        const dt = Math.min(deltaTime / 1000, 0.05);
+        const half = halfWidth();
+        if (half <= 0) return;
+
+        const base = half / LOOP_DURATION;
+        // Scroll speed sets the target pace; a still page falls back to base.
+        const pace = scrolling
+          ? gsap.utils.clamp(
+              base,
+              base * MAX_SPEED_MULTIPLIER,
+              scrollSpeed * SENSITIVITY,
+            )
+          : base;
+        scrolling = false;
+
+        speed += (direction * pace - speed) * Math.min(1, EASING * dt);
+        position += speed * dt;
+
+        // Wrap into a single half so the two identical halves loop seamlessly.
+        const wrapped = ((position % half) + half) % half;
+        setX(-wrapped);
+      });
+    }
+  }
+</script>
