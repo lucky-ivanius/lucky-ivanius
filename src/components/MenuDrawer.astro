@@ -1,0 +1,255 @@
+---
+import { RiCloseLine, RiMenuLine } from "@remixicon/react";
+import { navItems } from "@/lib/nav";
+
+// Handle-based profiles; swap for the canonical URLs if they differ.
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/lucky-ivanius" },
+  { label: "X/Twitter", href: "https://x.com/lucky-ivanius" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/lucky-ivanius" },
+];
+---
+
+<div data-menu-root class="dark">
+  <!-- Scrim that dims the page behind the drawer -->
+  <div
+    data-menu-scrim
+    class="fixed inset-0 z-30 bg-background/60 backdrop-blur-sm"
+  ></div>
+
+  <!-- Drawer -->
+  <aside
+    id="site-menu"
+    data-menu-drawer
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu"
+    tabindex="-1"
+    class="fixed inset-y-0 right-0 z-40 flex w-full flex-col border-l border-border bg-sidebar outline-none md:w-1/4 md:min-w-80"
+  >
+    <nav class="flex flex-col items-start gap-8 px-8 pt-24">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="group flex items-center gap-4 text-xl font-heading leading-6 text-foreground"
+        >
+          <span class="flex w-2 justify-end" aria-hidden="true">
+            <span class="size-0 bg-primary opacity-0 transition-all duration-250 group-hover:opacity-100 group-hover:size-2 group-focus-visible:opacity-100 group-focus-visible:size-2" />
+          </span>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <footer class="mt-auto flex flex-col gap-4 px-8 pb-8">
+      <p class="font-mono text-sm uppercase tracking-[0.2em] text-muted-foreground">
+        Social
+      </p>
+      <div class="border-t border-border" aria-hidden="true"></div>
+      <div class="flex gap-6 text-lg font-heading leading-6 text-foreground">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-colors duration-250 hover:text-primary"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Floating menu button, shown once the hero nav has scrolled away -->
+  <div data-menu-fab class="fixed top-6 right-6 z-50">
+    <button
+      type="button"
+      data-menu-toggle
+      class="flex size-24 cursor-pointer items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-transform duration-250 hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 [&>svg]:size-6"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="site-menu"
+    >
+      <span data-icon-open class="flex">
+        <RiMenuLine aria-hidden="true" />
+      </span>
+      <span data-icon-close class="flex">
+        <RiCloseLine aria-hidden="true" />
+      </span>
+    </button>
+  </div>
+</div>
+
+<style>
+  /* Floating button: hidden until the hero nav scrolls out of view, then it
+     drops in from above. `translate` (not `transform`) so the button's own
+     Tailwind hover scale never fights the show/hide state. */
+  [data-menu-fab] {
+    opacity: 0;
+    translate: 0 -8px;
+    pointer-events: none;
+    transition:
+      opacity 0.3s ease,
+      translate 0.3s ease;
+  }
+
+  [data-menu-root][data-scrolled] [data-menu-fab] {
+    opacity: 1;
+    translate: 0 0;
+    pointer-events: auto;
+  }
+
+  /* Scrim fades over the page while the drawer is open. */
+  [data-menu-scrim] {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  [data-menu-root][data-open] [data-menu-scrim] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Drawer waits off-canvas on the right. `visibility` flips after the slide
+     on close (delayed to the end) and immediately on open, so the closed
+     drawer is never focusable or announced. */
+  [data-menu-drawer] {
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      visibility 0s 0.5s;
+  }
+
+  [data-menu-root][data-open] [data-menu-drawer] {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      visibility 0s;
+  }
+
+  /* Icon swap: hamburger when closed, X when open. */
+  [data-icon-close] {
+    display: none;
+  }
+
+  [data-menu-root][data-open] [data-icon-open] {
+    display: none;
+  }
+
+  [data-menu-root][data-open] [data-icon-close] {
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-menu-fab],
+    [data-menu-scrim],
+    [data-menu-drawer] {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-menu-root]");
+  const toggle = root?.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const drawer = root?.querySelector<HTMLElement>("[data-menu-drawer]");
+  const scrim = root?.querySelector<HTMLElement>("[data-menu-scrim]");
+
+  if (root && toggle && drawer && scrim) {
+    let open = false;
+
+    const setOpen = (next: boolean) => {
+      if (next === open) return;
+      open = next;
+
+      root.toggleAttribute("data-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+
+      // Lock the page behind the drawer: pause Lenis and native scrolling.
+      document.documentElement.style.overflow = open ? "hidden" : "";
+      if (open) {
+        window.__lenis?.stop();
+      } else {
+        window.__lenis?.start();
+      }
+
+      if (open) {
+        drawer.focus({ preventScroll: true });
+      } else {
+        toggle.focus({ preventScroll: true });
+      }
+    };
+
+    toggle.addEventListener("click", () => setOpen(!open));
+    scrim.addEventListener("click", () => setOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && open) setOpen(false);
+    });
+
+    // Any link inside the drawer (nav or social) dismisses it; the Lenis
+    // anchor glide takes over from there.
+    drawer.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) setOpen(false);
+    });
+
+    // Keep Tab cycling inside the dialog. The floating button doubles as the
+    // close control, so it joins the cycle after the drawer's links.
+    drawer.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab" || !open) return;
+
+      const focusables = [
+        ...drawer.querySelectorAll<HTMLElement>("a[href]"),
+        toggle,
+      ];
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Show the button once the hero navigation has fully scrolled out of
+    // view, measured in document space so it survives reloads mid-scroll.
+    const heroNav = document.querySelector('nav[aria-label="Primary"]');
+    let threshold = heroNav
+      ? heroNav.getBoundingClientRect().bottom + window.scrollY
+      : 96;
+
+    const update = () => {
+      root.toggleAttribute("data-scrolled", window.scrollY > threshold);
+    };
+
+    let ticking = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          update();
+        });
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", () => {
+      if (heroNav) {
+        threshold = heroNav.getBoundingClientRect().bottom + window.scrollY;
+      }
+      update();
+    });
+
+    update();
+  }
+</script>

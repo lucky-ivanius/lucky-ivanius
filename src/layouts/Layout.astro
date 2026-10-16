@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import MenuDrawer from "@/components/MenuDrawer.astro";
 
 const { title = "Lucky Ivanius — Software Engineer" } = Astro.props;
 ---
@@ -16,6 +17,7 @@ const { title = "Lucky Ivanius — Software Engineer" } = Astro.props;
   </head>
   <body>
     <slot />
+    <MenuDrawer />
   </body>
 </html>
 
@@ -26,13 +28,16 @@ const { title = "Lucky Ivanius — Software Engineer" } = Astro.props;
   // so scroll-driven code (the hero parallax and marquee) keeps working as-is.
   // `respectReducedMotion` is on by default, which skips smoothing for users
   // who ask for less motion.
-  new Lenis({
+  const lenis = new Lenis({
     autoRaf: true,
     // The nav links are hash anchors, so let Lenis glide to them too.
     anchors: true,
     // Cut the glide short when a link starts navigating to another page.
     stopInertiaOnNavigate: true,
   });
+
+  // Overlays (the floating menu drawer) pause smoothing while they're open.
+  window.__lenis = lenis;
 </script>
 
 <style>

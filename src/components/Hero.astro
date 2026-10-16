@@ -1,11 +1,6 @@
 ---
 import { RiGlobalLine } from "@remixicon/react";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experiences", href: "#experiences" },
-  { label: "Contact", href: "#contact" },
-];
+import { navItems } from "@/lib/nav";
 
 // Four repeats give two identical halves so the row can loop seamlessly.
 const marqueeItems = Array.from({ length: 4 }, (_, index) => index);
@@ -62,7 +57,7 @@ const marqueeItems = Array.from({ length: 4 }, (_, index) => index);
           class="group flex flex-col items-center px-8 text-xl font-heading leading-6 text-foreground gap-4"
         >
           {item.label}
-          <span class="size-0 opacity-0 group-hover:opacity-100 group-hover:size-2 transition-all duration-250 bg-primary"></span>
+          <span class="size-0 opacity-0 group-hover:opacity-100 group-hover:size-2 group-focus-visible:opacity-100 group-focus-visible:size-2 transition-all duration-250 bg-primary"></span>
         </a>
       ))}
     </div>
@@ -143,7 +138,7 @@ const marqueeItems = Array.from({ length: 4 }, (_, index) => index);
       // How quickly the drift settles into a new pace, roughly per second.
       const EASING = 8;
       // Cap on the drift, as a multiple of the resting speed.
-      const MAX_SPEED_MULTIPLIER = 3;
+      const MAX_SPEED_MULTIPLIER = 5;
 
       // The row's offset is kept unbounded and only wrapped into one half for
       // paint, so it can drift forever in either direction (a GSAP tween with a
